@@ -8,6 +8,7 @@ class Video:
     youtube = build('youtube', 'v3', developerKey=api_key)
 
     def __init__(self, video_id):
+        """проверка на передачу не существующего видео"""
         try:
             self.video_id = video_id
             self.video_response = self.youtube.videos().list(part='snippet,statistics,contentDetails,topicDetails',
